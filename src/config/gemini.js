@@ -1,16 +1,10 @@
 
 
-/*
- * Install the Generative AI SDK
- *
- * $ npm install @google/generative-ai
- */
-
-const {
+import {
     GoogleGenerativeAI,
     HarmCategory,
     HarmBlockThreshold,
-  } = require("@google/generative-ai");
+  } from "@google/generative-ai";
   
   const apiKey ='AIzaSyBxtshr_loSLkLspI-cdb_C-fw5MI5iSrw';
   const genAI = new GoogleGenerativeAI(apiKey);
@@ -37,7 +31,9 @@ const {
     });
   
     const result = await chatSession.sendMessage(prompt);
-    console.log(result.response.text());
+    const response=result.response
+    console.log(response.text());
+    return response.text();
   }
   
   export default run;
